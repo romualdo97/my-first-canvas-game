@@ -1,0 +1,10 @@
+/* fonts */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #c7b6b6;
+}
+#my-canvas {
+    background-color: #f4e0e0;
+}
