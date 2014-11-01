@@ -1,10 +1,15 @@
 /* fonts */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
+.container {
+    text-align: center;
+}
 h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     color: #c7b6b6;
+    text-align: center;
 }
 #my-canvas {
+    display: inline-block;
     background-color: #f4e0e0;
 }
