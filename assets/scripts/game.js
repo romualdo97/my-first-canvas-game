@@ -23,9 +23,10 @@ var KEY_LEFT = 37,
     KEY_PAUSE = 13; // key for pause the game ( using enter key )
 
 // main character direction
-var direction = 2;
+var direction = 2,
+    speed = 5;
 
-var player, food, background, wall = [], body = [];
+var player, food, background, wall = [], body = [], brick;
 
 //=================================================================
 
@@ -79,12 +80,14 @@ function run(){
 function startWorldObjects (){
     console.log('from game.js:startWorldObjects()');
     
-    var x = 480, y = 100;
+    var x = 150, y = 100;
     body.push( new Rectangle( x, y ) );
     body.push( new Rectangle( 0, 0 ) );
     body.push( new Rectangle( 50, 0 ) );
     
     food = new Rectangle( 600, 100 );
+    
+    brick = new Rectangle(400, 200);
     
     background = new Rectangle( 0, 0, canvas.width, canvas.height );
     

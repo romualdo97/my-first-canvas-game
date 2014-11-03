@@ -10,15 +10,23 @@ function paint(){
 
     // draw main character ( a simple rectangle )
     context.fillStyle = '#7bb3ff';
-    body[0].draw();
+    body[0].draw( true );
 
+    // draw the brick
+    context.fillStyle = '#ff7bdb';
+    brick.draw();
+    
     // draw the food
     context.fillStyle = '#f7e68b';
     food.draw();
     
     // draw the body
-    context.fillStyle = '#a5c2f8';
-    for ( var j = 0; j < body.length; j++ ){
+    context.fillStyle = '#5ced7d';
+    for ( var j = 0; j < body.length; j++ ){       
+        /*context.fillStyle = '#dda741';
+        body[0].draw();
+        context.fillStyle = '#5ced7d';
+        body[1].draw();*/
         body[j].draw();
     }
     
