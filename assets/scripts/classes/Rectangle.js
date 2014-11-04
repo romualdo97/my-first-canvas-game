@@ -3,8 +3,8 @@
 function Rectangle( x, y, width, height ){
     this.x = typeof x === 'number' ? x : 50;
     this.y = typeof x === 'number' ? y : 50;
-    this.width = width ? width : 20;
-    this.height = height ? height : 20;
+    this.width = width ? width : 10;
+    this.height = height ? height : 10;
 }
 
 Rectangle.prototype.draw = function( stroke ){

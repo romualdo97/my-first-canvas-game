@@ -2,38 +2,38 @@
 
 // function for paint all in the canvas
 function paint(){
+    console.log(4);
     // console.log('from paint.js:paint()');
     
     // draw background
-    context.fillStyle = '#f87777';
-    background.draw();
+    // context.fillStyle = '#f87777';
+    // background.draw();
+    context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
 
-    // draw main character ( a simple rectangle )
-    context.fillStyle = '#7bb3ff';
-    body[0].draw( true );
 
     // draw the brick
-    context.fillStyle = '#ff7bdb';
-    brick.draw();
+    // context.fillStyle = '#ff7bdb';
+    // brick.draw();
     
     // draw the food
-    context.fillStyle = '#f7e68b';
-    food.draw();
+    // context.fillStyle = '#f7e68b';
+    // food.draw();
+    context.drawImage( iFood, food.x, food.y );
     
     // draw the body
-    context.fillStyle = '#5ced7d';
-    for ( var j = 0; j < body.length; j++ ){       
-        /*context.fillStyle = '#dda741';
-        body[0].draw();
-        context.fillStyle = '#5ced7d';
-        body[1].draw();*/
-        body[j].draw();
-    }
+    // draw main character ( a simple rectangle )
+    // context.fillStyle = '#7bb3ff';
+    // body[0].draw( true );
+    for ( var j = 0; j < body.length; j++ ){
+        // body[j].draw();        
+        context.drawImage( iBody , body[ j ].x, body[ j ].y );
+    }        
     
     // draw the walls
-    context.fillStyle = '#b26af0';
+    //context.fillStyle = '#b26af0';
     for ( var i = 0; i < wall.length; i++ ){
-        wall[i].draw();
+        // wall[i].draw();
+        context.drawImage( iBrick, wall[i].x, wall[i].y );
     }
     
     // draw game score
@@ -54,6 +54,8 @@ function paint(){
     
     context.font = '12px Open Sans Condensed';
     showDevMessages();
+    
+    
 }
 
 function showDevMessages(){

@@ -24,7 +24,7 @@ var KEY_LEFT = 37,
 
 // main character direction
 var direction = 2,
-    speed = 5;
+    speed = 10;
 
 var player, food, background, wall = [], body = [], brick;
 
@@ -42,7 +42,7 @@ function init(){
     
     canvas = document.getElementById('my-canvas');
     context = canvas.getContext('2d');
-    
+
     startWorldObjects();
     
     run();
@@ -53,7 +53,11 @@ function run(){
     // console.log('from game.js:run()');
     
     var now, deltaTime;
-    requestAnimationFrame( run );
+    
+    // hack for make the game slowest
+    setTimeout(function(){
+        requestAnimationFrame( run );        
+    }, 50);
 
     // perfomance concerns
     now = Date.now();
@@ -87,12 +91,12 @@ function startWorldObjects (){
     
     food = new Rectangle( 600, 100 );
     
-    brick = new Rectangle(400, 200);
+    brick = new Rectangle(400, 200, 30, 30);
     
     background = new Rectangle( 0, 0, canvas.width, canvas.height );
-    
-    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ) ) );
-    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ) ) );
+        
+    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ), 30, 30 ) );
+    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ), 30, 30 ) );
 }
 
 

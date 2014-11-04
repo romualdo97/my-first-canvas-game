@@ -18,48 +18,39 @@ function act(){
     if ( body[0].isCollidedBy( food ) ) {
         score += 1;
         body.push( new Rectangle() );
+        aEat.play();
         food.x = random( canvas.width - 100 );
         food.y = random( canvas.height - 100 );
     }
     
     // move snake body    
     for ( var j = body.length - 1; j > 0; j-- ) {
-        if ( direction === 3 ) {
-            body[ j ].x = (body[ j - 1 ].x - speed) + body[ j - 1 ].width;
-            body[ j ].y = body[ j - 1 ].y
-        }
-        if ( direction === 1 ) {
-            body[ j ].x = (body[ j - 1 ].x - body[ j - 1 ].width) + speed;
-            body[ j ].y = body[ j - 1 ].y
-        }
-        if ( direction === 0 ) {
-            body[ j ].y = (body[ j - 1 ].y + body[ j - 1 ].height ) - speed;
-            body[ j ].x = body[ j - 1 ].x;
-        }
-        if ( direction === 2 ) {
-            body[ j ].y = (body[ j - 1 ].y - body[j - 1].width) + speed;
-            body[ j ].x = body[ j - 1 ].x;
+        body[ j ].x = body[ j - 1 ].x;
+        body[ j ].y = body[ j - 1 ].y
+    }
+    
+    // check if head collide with its own body
+    for ( var k = 2; k < body.length; k++ ){
+        if ( body[0].isCollidedBy( body[ k ] ) ){
+            isGameOver = true;
+            isGamePaused = true;
         }
     }
     
-    // check if body collide by botton side the brick
-    
+    // check if body collide by botton side the brick    
     switch( body[0].checkCollitionSide( brick ) ){
         case 'top':
             brick.y += 10;
             break;
     }
-    /*
-    if ( body[0].isCollidedByTopSideBy( brick ) ){
-        brick.y -= 5;
-    }*/
-    
+        
     
     
     // check if snakes crashes with wall
     
     for ( var i = 0; i < wall.length; i++ ){
         if ( wall[ i ].isCollidedBy( body[0] ) ){
+            aDie.play();
             isGamePaused = true;
             isGameOver = true;
         }
@@ -72,16 +63,20 @@ function act(){
     // set direction to direction variable
     switch( lastKeyPressed ){
         case KEY_UP:
-            direction = 0;
+            if( direction != 2 )
+                direction = 0;
             break;
         case KEY_RIGHT:
-            direction = 1;
+            if( direction != 3 )
+                direction = 1;
             break;
         case KEY_DOWN:
-            direction = 2;
+            if( direction != 0 )
+                direction = 2;
             break;
         case KEY_LEFT:
-            direction = 3;
+            if( direction != 1 )
+                direction = 3;
             break;
     }
 

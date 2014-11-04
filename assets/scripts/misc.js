@@ -3,6 +3,7 @@ function respawn(){
     direction = 3;
     body[0].x = canvas.width - 200;
     body[0].y = canvas.height / 2;
+    body.length = 3;
 }
 // math funcs
 function random( max ){
