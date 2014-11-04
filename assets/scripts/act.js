@@ -36,18 +36,9 @@ function act(){
             isGamePaused = true;
         }
     }
-    
-    // check if body collide by botton side the brick    
-    switch( body[0].checkCollitionSide( brick ) ){
-        case 'top':
-            brick.y += 10;
-            break;
-    }
         
     
-    
-    // check if snakes crashes with wall
-    
+    // check if snakes crashes with wall    
     for ( var i = 0; i < wall.length; i++ ){
         if ( wall[ i ].isCollidedBy( body[0] ) ){
             aDie.play();
@@ -112,12 +103,6 @@ function act(){
     if ( body[0].y < 0 )
         body[0].y = canvas.height;
     
-    // if brick is out screen
-    if ( brick.x > canvas.width || brick.x < 0 )
-        brick.x = canvas.width / 2;
-    if ( brick.y > canvas.height || brick.y < 0 )
-        brick.y = canvas.height / 2;
-
 }
 
 

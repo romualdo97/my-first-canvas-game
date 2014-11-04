@@ -90,13 +90,12 @@ function startWorldObjects (){
     body.push( new Rectangle( 50, 0 ) );
     
     food = new Rectangle( 600, 100 );
-    
-    brick = new Rectangle(400, 200, 30, 30);
-    
-    background = new Rectangle( 0, 0, canvas.width, canvas.height );
         
-    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ), 30, 30 ) );
-    wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ), 30, 30 ) );
+    background = new Rectangle( 0, 0, canvas.width, canvas.height );
+    
+    for ( var j = 0; j < 10; j++ ) {
+        wall.push( new Rectangle( random( 960 - 50 ), random( 360 - 50 ), 30, 30 ) );
+    }
 }
 
 

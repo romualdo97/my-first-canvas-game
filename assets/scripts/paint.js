@@ -9,11 +9,6 @@ function paint(){
     // context.fillStyle = '#f87777';
     // background.draw();
     context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
-
-
-    // draw the brick
-    // context.fillStyle = '#ff7bdb';
-    // brick.draw();
     
     // draw the food
     // context.fillStyle = '#f7e68b';
